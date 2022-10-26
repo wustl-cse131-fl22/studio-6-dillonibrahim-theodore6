@@ -13,11 +13,15 @@ public class IterativeMethods {
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
-		double sum = 0.0;
-		for (int power = 1; power <= n; ++power) {
-			sum = sum + Math.pow(0.5, power);
+
+		if (n == 0) {
+			return 0;
 		}
-		return sum;
+		else {
+			return 1/(Math.pow(2, n)) + geometricSum(n-1);  
+		}
+		
+		
 	}
 
 	/**
@@ -25,19 +29,26 @@ public class IterativeMethods {
 	 * @param q second operand
 	 * @return greatest common divisor of p and q
 	 */
-	public static int gcd(int p, int q) {
-		while (q != 0) {
-			int temp = q;
-			q = p % q;
-			p = temp;
+	public static int gcd(int p, int q) {			
+		if (q == 0) {
+			return p;
 		}
-		return p;
+		else {
+			return gcd(q, p % q);
+		}
 	}
 
 	/**
 	 * @param array the array to create a reverse of, not to be mutated
 	 * @return an array with the same data as the input but it reverse order
 	 */
+	public static int helper(int x) {
+		
+	return 1;
+	
+	
+	}
+	
 	public static int[] toReversed(int[] array) {
 		int[] reversed = new int[array.length];
 		if (array.length > 0) {
@@ -50,6 +61,22 @@ public class IterativeMethods {
 				reversed[index] = array[mirrorIndex];
 				reversed[mirrorIndex] = array[index];
 			}
+
+
+			if (array.length > 0 || array.length == 1) {
+				if (array.length == 0) {
+					return new int [0];
+				}
+				else {
+					return new int [0];
+				}
+			}
+			else {
+				return toReversed();
+			}
+
+
+
 		}
 		return reversed;
 	}
